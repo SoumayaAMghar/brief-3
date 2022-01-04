@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- title -->
+    <title>booking</title>
+  <!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+	<!-- main style -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- box icon  -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"> -->
+    <!-- <script language="javascript"></script> -->
+</head>
+
+<body>
+	<nav>
+		<!-- <input type="checkbox" id="check" >
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label> -->
+		<a href="index.html"><img src="assets/img/Group 114.png" alt="logo"></a>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="category.html">Category</a></li>
+			<li><a href="booking.html">booking</a></li>
+			<li><a href="contactus.html">Contact Us</a></li>
+		</ul>
+	</nav> 
+  <script>
+    var subjectObject = {
+      "Motos": {
+        "Electrique": [],
+        "Essence": []
+      },
+      "Citadine": {
+        "Electrique": ["Manuelle"],
+        "hybride": ["Manuelle"],
+        "Essence": ["Manuelle"],
+        "Diesel": ["Manuelle"]
+      },
+      "Compact": {
+        "hybride": ["Manuelle"],
+        "Essence": ["Manuelle"],
+        "Diesel": ["Manuelle"]
+      },
+      "Berline": {
+        "hybride": ["Automatique"],
+        "Essence": ["Automatique"],
+        "Diesel": ["Automatique"]
+      },
+      "Utilitaire": {
+        "Diesel": ["Manuelle"]
+      },
+      "Engin de Chantier": {
+        "Essence": ["Manuelle"],
+        "Diesel": ["Manuelle"]
+      },
+      "Camion": {
+        "Diesel": ["Automatique"]
+
+      }
+    }
+    window.onload = function () {
+      var type_du_véhicule = document.getElementById("tv");
+      var carburant = document.getElementById("Carburant");
+      var boite_à_vitessel = document.getElementById("bv");
+      for (var x in subjectObject) {
+        type_du_véhicule.options[type_du_véhicule.options.length] = new Option(x, x);
+      }
+      type_du_véhicule.onchange = function () {
+        //vider bvs- et Carburants- 
+        boite_à_vitessel.length = 0;
+        carburant.length = 0;
+
+        for (var y in subjectObject[this.value]) {
+          carburant.options[carburant.options.length] = new Option(y, y);
+        }
+      }
+      carburant.onchange = function () {
+        //vider bvs 
+        boite_à_vitessel.length = 0;
+        //display correct values
+        // for (var y in subjectObject[type_du_véhicule.value][this.value]) {
+        var z = subjectObject[type_du_véhicule.value][this.value];
+        for (var i = 0; i < z.length; i++) {
+
+          boite_à_vitessel.options[boite_à_vitessel.options.length] = new Option(z[i], z[i]);
+        }
+      }
+    }
+    function Calcule() {
+      var total = 0;
+      var nbrjour = document.getElementById("nbrjours").value;
+      var typevehicule = document.getElementById("tv").value;
+      var carburant = document.getElementById("Carburant").value;
+      var bv = document.getElementById("bv").value;
+      switch (typevehicule) {
+        case "Motos":
+          if (carburant == "Essence") {
+            total = nbrjour * (1.14 + 10);
+            break;
+          }
+          else {
+            total = nbrjour * (0.05 + 10);
+            break;
+          }
+        case "Citadine":
+          {
+            if (carburant == "Electrique") {
+              total = nbrjour * (5 / 100 * 12 + 12);
+              break;
+            }
+            else if (carburant == "hybride") {
+              total = nbrjour * (9 / 100 * 12 + 12);
+              break;
+            }
+            else if (carburant == "Essence") {
+              total = nbrjour * (14 / 100 * 12 + 12);
+              break;
+            }
+            else {
+              total = nbrjour * (21 / 100 * 12 + 12);
+              break;
+            }
+          }
+
+        case "Compact":
+          {
+
+            if (carburant == "hybride") {
+              total = nbrjour * (9 / 100 * 14 + 14);
+              break;
+            }
+            else if (carburant == "Essence") {
+              total = nbrjour * (14 / 100 * 14 + 14);
+              break;
+            }
+            else {
+              total = nbrjour * (21 / 100 * 14 + 14);
+              break;
+            }
+          }
+
+        case "Berline":
+          {
+
+            if (carburant == "hybride") {
+              total = nbrjour * (9 / 100 * 20 + 20);
+              break;
+            }
+            else if (carburant == "Essence") {
+              total = nbrjour * (14 / 100 * 20 + 20);
+              break;
+            }
+            else {
+              total = nbrjour * (21 / 100 * 20 * +20);
+              break;
+            }
+          }
+        case "Utilitaire":
+          {
+
+            if (carburant == "hybride") {
+              total = nbrjour * (21 / 100 * 16 + 16);
+              break;
+            }
+          }
+        case "Engin de Chantier":
+          {
+
+            if (carburant == "Essence") {
+              total = nbrjour * (14 / 100 * 900 + 900);
+              break;
+            }
+            else {
+              total = nbrjour * (21 / 100 * 900 + 900);
+              break;
+            }
+          }
+        case "Camion":
+          {
+
+            total = nbrjour * (21 / 100 * 250 + 250);
+            break;
+
+          }
+        default: document.getElementById("Erreur").innerHTML = "Erreur de saisie essayer une aytre fois";
+      }
+      if (total > 0) {
+        document.getElementById("Erreur").innerHTML = "";
+        document.getElementById("res").innerHTML = "Reservation passe avec succes !! le total :" + total + "$";
+      }
+    }
+  </script>
+  <section class="hero">
+    <div class="background-image" style="background-image: url(assets/img/hero.jpg);"></div>
+
+      <form class="fichebook">
+        <div class="row">
+          <div class="label_column">
+            <label for="fname">type du véhicule :</label>
+          </div>
+          <div class="input_column">
+            <select name="type_du_véhicule" id="tv">
+              <option value="" selected="selected">Selectionner le type du vehicule </option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="label_column">
+            <label for="carburant">carburant :</label>
+          </div>
+          <div class="input_column">
+            <select name="Carburant" id="Carburant">
+
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="label_column">
+            <label for="carburant">Boite a vitesse :</label>
+          </div>
+          <div class="input_column">
+            <select name="bv" id="bv">
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="label_column">
+            <label for="nbrjour">Nombre de jours :</label>
+          </div>
+          <div class="input_column">
+            <input type="number" name="nbrjour" id="nbrjours" min="1" value="1">
+          </div>
+        </div>
+        <div class="blank"></div>
+
+        <input type="button" value="Reserver" id="Envoyer" onclick="Calcule()">
+
+      </form>
+      <p id="Erreur" style="color:rgb(255, 0, 0)"></p>
+      <p id="res" style="color:rgb(39, 230, 188)"></p>
+
+    </section>
+
+      <footer>
+        <ul>
+          <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a href="#"><i class="fa fa-snapchat-square"></i></a></li>
+          <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
+          <li><a href="https://github.com/SoumayaAMghar"><i class="fa fa-github-square"></i></a></li>
+        </ul>
+        <p>Made by <a href="https://www.instagram.com/" target="_blank">SoumayaAmghar</a>.</p>
+    </footer>
+    <!-- JS -->
+  
+    </body>
+    
+    </html>
