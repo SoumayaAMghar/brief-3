@@ -4,21 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
 
-</style>
 	<!-- title -->
-    <title>contact-us</title>
+    <title>RentMeNw</title>
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 	<!-- main style -->
     <link rel="stylesheet" href="assets/css/styles.css">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -26,7 +23,7 @@
 	<nav>
 		<input type="checkbox" id="check" >
 		<label for="check" class="checkbtn">
-			<!-- <i class="fas fa-bars"></i> -->
+			<i class="fa fa-bars"></i>
 		</label>
 		<a href="index.html"><img src="assets/img/Group 114.png" alt="logo"></a>
 		<ul>
@@ -38,25 +35,25 @@
 	</nav>
 
 
-	<section class="contacte">
-		<div class="background-image" style="background-image: url(assets/img/bmwberline.jpg);"></div>
-            <div class="contact-us">
-                <form action="#" name="form1">
-                    <label for="customerName">NAME <em>&#x2a;</em></label>
+
+	<section class="hero">
+		<div class="background-image" style="background-image: url(assets/img/hero.jpg);"></div>
+                <form action="#" name="form1" class="fichebook">
+                    <label for="customerName">Name</label>
 					<input id="customerName" name="customerName" required type="text"  id="nom"/>
-					<label for="customerEmail">EMAIL <em>&#x2a;</em></label>
+					<label for="customerEmail">Email</label>
 					<input id="customerEmail" name="customerEmail" required="" type="email" />
-					<label for="customerPhone">PHONE</label><input id="customerPhone" name="customerPhone"  type="tel" />
-					<label for="customerNote">YOUR MESSAGE </label>
+					<label for="customerPhone">Phone</label><input id="customerPhone" name="customerPhone"  type="tel" />
+					<label for="customerNote">Your message </label>
 					<textarea id="customerNote" name="customerNote" required="" rows="4"></textarea>
-                    <h3>
+                    <h6>
                     Please provide all the information about your issue you can.
-                    </h3> 
-                <button id="customerOrder" onclick="contact()">SUBMIT</button>
+                    </h6> 
+                <button  class="sumbit" onclick="contact()">Sumbit</button>
                 </form>
               </div>
 	</section>
-	<!-- pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
+
 	<footer>
 		<ul>
 			<li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
@@ -74,7 +71,7 @@
 		var phone=document.form1.customerPhone.value;
 		var message=document.form1.customerNote.value;
 	
-		alert("nom:"+nomnom+"\n email:"+email+"\nphone:"+phone+"\nmessage:"+message);
+		alert("nom:"+nomnom+"\nemail:"+email+"\nphone:"+phone+"\nmessage:"+message);
 	}
 
 </script>

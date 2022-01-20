@@ -1,39 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- title -->
-    <title>booking</title>
-  <!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
-	<!-- google font -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-	<!-- main style -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- box icon  -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"> -->
-    <!-- <script language="javascript"></script> -->
+<!-- title -->
+  <title>RentMeNw</title>
+<!-- favicon -->
+<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<!-- fontawesome -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+<!-- main style -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
-	<nav>
-		<!-- <input type="checkbox" id="check" >
-		<label for="check" class="checkbtn">
-			<i class="fas fa-bars"></i>
-		</label> -->
-		<a href="index.html"><img src="assets/img/Group 114.png" alt="logo"></a>
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="category.html">Category</a></li>
-			<li><a href="booking.html">booking</a></li>
-			<li><a href="contactus.html">Contact Us</a></li>
-		</ul>
-	</nav> 
+
   <script>
     var subjectObject = {
       "Motos": {
@@ -72,9 +57,10 @@
       var type_du_véhicule = document.getElementById("tv");
       var carburant = document.getElementById("Carburant");
       var boite_à_vitessel = document.getElementById("bv");
-      for (var x in subjectObject) {
+
+        for (var x in subjectObject) {
         type_du_véhicule.options[type_du_véhicule.options.length] = new Option(x, x);
-      }
+         }
       type_du_véhicule.onchange = function () {
         //vider bvs- et Carburants- 
         boite_à_vitessel.length = 0;
@@ -87,11 +73,8 @@
       carburant.onchange = function () {
         //vider bvs 
         boite_à_vitessel.length = 0;
-        //display correct values
-        // for (var y in subjectObject[type_du_véhicule.value][this.value]) {
         var z = subjectObject[type_du_véhicule.value][this.value];
         for (var i = 0; i < z.length; i++) {
-
           boite_à_vitessel.options[boite_à_vitessel.options.length] = new Option(z[i], z[i]);
         }
       }
@@ -105,29 +88,29 @@
       switch (typevehicule) {
         case "Motos":
           if (carburant == "Essence") {
-            total = nbrjour * (1.14 + 10);
+            total = nbrjour * (1.4 + 10);
             break;
           }
           else {
-            total = nbrjour * (0.05 + 10);
+            total = nbrjour * (0.5 + 10);
             break;
           }
         case "Citadine":
           {
             if (carburant == "Electrique") {
-              total = nbrjour * (5 / 100 * 12 + 12);
+              total = nbrjour * (0.6 + 12);
               break;
             }
             else if (carburant == "hybride") {
-              total = nbrjour * (9 / 100 * 12 + 12);
+              total = nbrjour * (1.08 + 12);
               break;
             }
             else if (carburant == "Essence") {
-              total = nbrjour * (14 / 100 * 12 + 12);
+              total = nbrjour * (1.44 + 12);
               break;
             }
             else {
-              total = nbrjour * (21 / 100 * 12 + 12);
+              total = nbrjour * (2.52 + 12);
               break;
             }
           }
@@ -136,15 +119,15 @@
           {
 
             if (carburant == "hybride") {
-              total = nbrjour * (9 / 100 * 14 + 14);
+              total = nbrjour * (1.26 + 14);
               break;
             }
             else if (carburant == "Essence") {
-              total = nbrjour * (14 / 100 * 14 + 14);
+              total = nbrjour * (1.96 + 14);
               break;
             }
             else {
-              total = nbrjour * (21 / 100 * 14 + 14);
+              total = nbrjour * (2.94 + 14);
               break;
             }
           }
@@ -153,101 +136,88 @@
           {
 
             if (carburant == "hybride") {
-              total = nbrjour * (9 / 100 * 20 + 20);
+              total = nbrjour * (1.8 + 20);
               break;
             }
             else if (carburant == "Essence") {
-              total = nbrjour * (14 / 100 * 20 + 20);
+              total = nbrjour * (2.8 + 20);
               break;
             }
             else {
-              total = nbrjour * (21 / 100 * 20 * +20);
+              total = nbrjour * (4.2 + 20);
               break;
             }
           }
         case "Utilitaire":
           {
-
-            if (carburant == "hybride") {
-              total = nbrjour * (21 / 100 * 16 + 16);
+              total = nbrjour * (3.36 + 16);
               break;
-            }
           }
         case "Engin de Chantier":
           {
 
             if (carburant == "Essence") {
-              total = nbrjour * (14 / 100 * 900 + 900);
+              total = nbrjour * (126 + 900);
               break;
             }
             else {
-              total = nbrjour * (21 / 100 * 900 + 900);
+              total = nbrjour * (189 + 900);
               break;
             }
           }
         case "Camion":
           {
-
-            total = nbrjour * (21 / 100 * 250 + 250);
+            total = nbrjour * (52.5 + 250);
             break;
 
           }
-        default: document.getElementById("Erreur").innerHTML = "Erreur de saisie essayer une aytre fois";
+        default: document.getElementById("Error").innerHTML = "Error try again";
       }
       if (total > 0) {
-        document.getElementById("Erreur").innerHTML = "";
-        document.getElementById("res").innerHTML = "Reservation passe avec succes !! le total :" + total + "$";
+        document.getElementById("result").innerHTML = "Successful Reservation !! The price is :" + total + "$";
       }
     }
+
   </script>
+  <body>
+    <nav>
+      <input type="checkbox" id="check" >
+      <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+      </label>
+      <a href="index.html"><img src="assets/img/Group 114.png" alt="logo"></a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="category.html">Category</a></li>
+        <li><a href="booking.html">booking</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
   <section class="hero">
     <div class="background-image" style="background-image: url(assets/img/hero.jpg);"></div>
 
       <form class="fichebook">
-        <div class="row">
-          <div class="label_column">
-            <label for="fname">type du véhicule :</label>
-          </div>
-          <div class="input_column">
-            <select name="type_du_véhicule" id="tv">
-              <option value="" selected="selected">Selectionner le type du vehicule </option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label_column">
-            <label for="carburant">carburant :</label>
-          </div>
-          <div class="input_column">
-            <select name="Carburant" id="Carburant">
+            <label for="fname">Tpe of vehicle :</label>
+            <select class="select" name="type_du_véhicule" id="tv">
+            <option value="" selected="selected">Select the type of vehicle </option></select>
+            
 
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label_column">
-            <label for="carburant">Boite a vitesse :</label>
-          </div>
-          <div class="input_column">
-            <select name="bv" id="bv">
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label_column">
+            <label for="carburant">Engin :</label>
+            <select class="select" name="Carburant" id="Carburant"></select>
+            
+
+            <label for="carburant">Gear Box:</label>
+            <select class="select" name="bv" id="bv"></select>
+            
+
             <label for="nbrjour">Nombre de jours :</label>
-          </div>
-          <div class="input_column">
             <input type="number" name="nbrjour" id="nbrjours" min="1" value="1">
-          </div>
-        </div>
-        <div class="blank"></div>
 
-        <input type="button" value="Reserver" id="Envoyer" onclick="Calcule()">
+          <input type="button" value="Reserver"  class="sumbit" onclick="Calcule()">
 
       </form>
-      <p id="Erreur" style="color:rgb(255, 0, 0)"></p>
-      <p id="res" style="color:rgb(39, 230, 188)"></p>
+      <p id="Error"></p>
+      <p id="result"></p>
 
     </section>
 
